@@ -244,7 +244,7 @@ public class WormCircle : MonoBehaviour
             }
             if (col.gameObject.tag == "yad")
             {
-                rbs = 0;
+                rbs = 0; rubys = 0f;score = 0;
                 load3sec = true; 
                 StartCoroutine(GetLoseOrFinish("You Dead"));
                 transform.position = loadposition;
@@ -252,7 +252,7 @@ public class WormCircle : MonoBehaviour
             }
             if (col.gameObject.tag == "razor")
             {
-                rbs = 0;
+                rbs = 0; rubys = 0f; score = 0;
                 load3sec = true;
                 StartCoroutine(GetLoseOrFinish("You Dead"));
                 transform.position = loadposition;
