@@ -133,12 +133,12 @@ public class WormCircle : MonoBehaviour
             }
         }
 
-        if (rubys >= 4)
+        if (rbs >= 4)
         {
             
             load5sec = true;
             StartCoroutine(GetEnumeratorIK());
-            rubys = 0;
+            rbs = 0;
         }
         
         mmats2[0].GetComponent<SpriteRenderer>().sprite = mmats[GameObject.Find(roads[currIndex]).GetComponent<Road>().mycolor()];
@@ -233,16 +233,18 @@ public class WormCircle : MonoBehaviour
             load3sec = false;
         }
     }
+    int rbs=0;
     void OnCollisionEnter(Collision col)
     {
         if (load5sec == false)
         {
             if (col.gameObject.tag == "corm")
             {
-                rubys = 0; addmove = 1;
+                rbs = 0; addmove = 1;
             }
             if (col.gameObject.tag == "yad")
             {
+                rbs = 0;
                 load3sec = true; 
                 StartCoroutine(GetLoseOrFinish("You Dead"));
                 transform.position = loadposition;
@@ -250,6 +252,7 @@ public class WormCircle : MonoBehaviour
             }
             if (col.gameObject.tag == "razor")
             {
+                rbs = 0;
                 load3sec = true;
                 StartCoroutine(GetLoseOrFinish("You Dead"));
                 transform.position = loadposition;
@@ -257,11 +260,12 @@ public class WormCircle : MonoBehaviour
             }
             if (col.gameObject.tag == "rub")
             {
-                rubys += 1f;
+                rbs += 1; rubys += 1f;
             }
         }
         else if (load5sec == true)
         {
+            rbs = 0;
             if (col.gameObject.tag == "corm")
             {
                 addmove = 1;
