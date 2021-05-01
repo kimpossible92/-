@@ -133,13 +133,14 @@ public class WormCircle : MonoBehaviour
             }
         }
 
-        if (rubys >= 5)
+        if (rubys >= 4)
         {
             
             load5sec = true;
             StartCoroutine(GetEnumeratorIK());
             rubys = 0;
         }
+        
         mmats2[0].GetComponent<SpriteRenderer>().sprite = mmats[GameObject.Find(roads[currIndex]).GetComponent<Road>().mycolor()];
         mmats2[1].GetComponent<SpriteRenderer>().sprite = mmats[GameObject.Find(roads[currIndex]).GetComponent<Road>().mycolor()];
         mmats2[2].GetComponent<SpriteRenderer>().sprite = mmats[GameObject.Find(roads[currIndex]).GetComponent<Road>().mycolor()];
@@ -238,7 +239,7 @@ public class WormCircle : MonoBehaviour
         {
             if (col.gameObject.tag == "corm")
             {
-                addmove = 1;
+                rubys = 0; addmove = 1;
             }
             if (col.gameObject.tag == "yad")
             {

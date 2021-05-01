@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SamSapiel : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject goStart;
     GameObject wormis;
     public static SamSapiel instnce;
+    [SerializeField] GameObject @objectlisght;
     public GameObject getWorm()
     {
         return wormis;
@@ -21,6 +23,7 @@ public class SamSapiel : MonoBehaviour
     {
         instnce = this;
         InitPref();
+        if(@objectlisght!=null)DontDestroyOnLoad(@objectlisght);
     }
     protected void InitPref()
     {
